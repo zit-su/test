@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gronur - Grocery App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for that clean UI look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Main App Container (Mimics a phone screen) -->
+    <div class="app-container">
+        
+        <!-- SCREEN 1: SPLASH -->
+        <div id="screen-splash" class="screen active">
+            <div class="splash-content">
+                <div class="logo-icon">🛒</div>
+                <h1>Gronur</h1>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: LOGIN -->
+        <div id="screen-login" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="goToScreen('screen-splash')">←</button>
+                <h2>Welcome back</h2>
+                <p class="subtitle">Login to your account</p>
+            </div>
+            <form class="auth-form" onsubmit="event.preventDefault(); goToScreen('screen-home');">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+            <p class="bottom-text">Don't have an account? <span>Sign Up</span></p>
+        </div>
+
+        <!-- SCREEN 3: HOME -->
+        <div id="screen-home" class="screen">
+            <div class="home-header">
+                <div>
+                    <h2>Daily Grocery Food</h2>
+                    <p class="subtitle">Find your favorite food</p>
+                </div>
+                <div class="search-icon">🔍</div>
+            </div>
+            
+            <div class="categories">
+                <span class="cat-pill active">Fruits</span>
+                <span class="cat-pill">Fast Food</span>
+                <span class="cat-pill">Vegetables</span>
+            </div>
+
+            <h3 class="section-title">Popular Fruits</h3>
+            
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card" onclick="goToScreen('screen-details')">
+                    <div class="product-img">🍎</div>
+                    <h4>Apple</h4>
+                    <p class="price">$18.45<span>/kg</span></p>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-img">🍊</div>
+                    <h4>Orange</h4>
+                    <p class="price">$14.75<span>/kg</span></p>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-img">🫑</div>
+                    <h4>Capsicum</h4>
+                    <p class="price">$18.75<span>/kg</span></p>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-img">🐉</div>
+                    <h4>Dragon Fruit</h4>
+                    <p class="price">$30.35<span>/kg</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 4: PRODUCT DETAILS -->
+        <div id="screen-details" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="goToScreen('screen-home')">←</button>
+                <h2>Fresh Orange</h2>
+            </div>
+            <div class="detail-img-container">
+                <div class="detail-img">🍊</div>
+            </div>
+            <div class="detail-content">
+                <div class="detail-title-row">
+                    <h2>Fresh Orange</h2>
+                    <div class="qty-selector">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+                <p class="price-large">$14.75<span>/kg</span></p>
+                <h3 class="section-title">Product Description</h3>
+                <p class="desc-text">Fresh oranges are packed with vitamin C and antioxidants. Perfect for juicing or eating raw.</p>
+            </div>
+            <div class="bottom-action-bar">
+                <button class="btn-primary" onclick="alert('Added to cart!')">Add to cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
