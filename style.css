@@ -1,0 +1,265 @@
+/* --- Design Tokens (Colors extracted from image) --- */
+:root {
+    --primary-dark: #1A2238; /* Deep Navy Blue */
+    --accent-orange: #FF7E00; /* Bright Orange */
+    --bg-color: #F8F9FB; /* Light Grey Background */
+    --text-main: #333333;
+    --text-muted: #888888;
+    --white: #FFFFFF;
+    --border-radius: 16px;
+    --border-radius-sm: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #E2E8F0; /* Desktop background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Phone Container --- */
+.app-container {
+    width: 375px;
+    height: 812px;
+    background-color: var(--bg-color);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    border: 8px solid var(--primary-dark);
+}
+
+/* --- Screen Management --- */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(20px);
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* --- Splash Screen --- */
+#screen-splash {
+    background-color: var(--white);
+    justify-content: center;
+    align-items: center;
+}
+.splash-content { text-align: center; }
+.logo-icon { font-size: 60px; margin-bottom: 10px; }
+#screen-splash h1 { color: var(--primary-dark); font-size: 32px; }
+
+/* --- Headers & Navigation --- */
+.header {
+    padding: 40px 20px 20px;
+    background-color: var(--white);
+}
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+h2 { color: var(--primary-dark); font-size: 24px; margin-bottom: 5px; }
+.subtitle { color: var(--text-muted); font-size: 14px; }
+
+/* --- Forms --- */
+.auth-form {
+    padding: 20px;
+    background-color: var(--white);
+    flex: 1;
+}
+.input-group {
+    margin-bottom: 20px;
+}
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--bg-color);
+    outline: none;
+    font-size: 14px;
+}
+.input-group input:focus {
+    border-color: var(--primary-dark);
+}
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: var(--accent-orange);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+.btn-primary {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.bottom-text {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    background-color: var(--white);
+}
+.bottom-text span { color: var(--primary-dark); font-weight: 600; cursor: pointer; }
+
+/* --- Home Screen --- */
+#screen-home {
+    background-color: var(--bg-color);
+    overflow-y: auto;
+}
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px 20px;
+}
+.search-icon {
+    font-size: 20px;
+    background: var(--white);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.categories {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px;
+    overflow-x: auto;
+}
+.cat-pill {
+    padding: 8px 16px;
+    background-color: var(--white);
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    cursor: pointer;
+}
+.cat-pill.active {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+.section-title {
+    padding: 0 20px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--primary-dark);
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 0 20px 20px;
+}
+.product-card {
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.product-card:active { transform: scale(0.98); }
+.product-img {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.product-card h4 {
+    font-size: 14px;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+}
+.price {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+.price span { font-size: 10px; color: var(--text-muted); font-weight: 400; }
+
+/* --- Product Details Screen --- */
+#screen-details { background-color: var(--white); }
+.detail-img-container {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    border-radius: 0 0 40px 40px;
+}
+.detail-img { font-size: 120px; }
+.detail-content { padding: 20px; flex: 1; }
+.detail-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.qty-selector {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+.qty-selector button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--accent-orange);
+    cursor: pointer;
+}
+.price-large {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+}
+.price-large span { font-size: 14px; color: var(--text-muted); font-weight: 400; }
+.desc-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.bottom-action-bar {
+    padding: 20px;
+    background-color: var(--white);
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+}
